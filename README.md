@@ -45,7 +45,6 @@ mise use tailwindcss@3
 
 # Install a specific patch version
 mise use tailwindcss@3.4.15
-
 ```
 
 ### 3. Usage Examples
@@ -68,6 +67,54 @@ Regardless of the version, the command remains the same:
 
 ```bash
 tailwindcss -i input.css -o output.css --watch
+```
+
+---
+
+## Automatic updates & version pinning
+
+One of the most powerful features of `mise` is how it handles version resolutions. Instead of hardcoding a specific release, you can reference **major versions**.
+
+### Why use Major Versions (`@3`, `@4`)?
+
+By referencing only the major version, you ensure that you always have the latest features and security patches within that release cycle, without manually downloading new binaries.
+
+* **`tailwindcss@4`**: Points to the latest stable **v4.x.x**.
+* **`tailwindcss@3`**: Points to the latest stable **v3.x.x**.
+
+This is particularly useful because Tailwind v4 is a significant architectural shift. You can keep your v3 projects stable while exploring v4 features, and `mise` will manage the "latest" for both simultaneously.
+
+### How `mise` Upgrades Packages
+
+`mise` doesn't just "install and forget." It allows you to keep your binaries fresh with simple commands:
+
+#### 1. Checking for updates
+
+To see if a newer version is available for your pinned major version:
+
+```bash
+mise outdated
+```
+
+#### 2. Upgrading to the latest patch
+
+If you are using `@4` and Tailwind releases `4.0.1`, you can upgrade simply by running:
+
+```bash
+# Upgrades all managed tools to their latest resolved version
+mise upgrade
+
+# Upgrade only TailwindCSS
+mise upgrade tailwindcss
+```
+
+#### 3. Fresh Installs
+
+If you want to ensure you are starting a project with the absolute latest patch of a major version:
+
+```bash
+# This will fetch the newest 4.x.x even if you have an older 4.0.0 cached
+mise use tailwindcss@4
 ```
 
 ---
