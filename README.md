@@ -10,8 +10,6 @@ While Tailwind Labs provides the executables, managing them manually (downloadin
 * **Side-by-side versions**: Use Tailwind v3 for legacy projects and v4 for new ones in the same terminal.
 * **Auto-switching**: `mise` switches the `tailwindcss` command version automatically based on your current directory.
 
----
-
 ## Installation with mise-en-place via `github` backend (Recommended)
 
 The most reliable way to manage Tailwind versions is using the `github:` backend. This fetches releases directly from the official [tailwindlabs/tailwindcss](https://github.com/tailwindlabs/tailwindcss/releases) repository.
@@ -55,8 +53,6 @@ tailwindcss -i input.css -o output.css --watch
 tailwindcss -i input.css -o output.css
 ```
 
----
-
 ## Automatic updates & version pinning
 
 One of the most powerful features of `mise` is how it handles version resolutions. Instead of hardcoding a specific (patch) release, you can reference **major versions**. By referencing only the major version, you ensure that you always have the latest features and security patches within that release cycle, without manually downloading new binaries.
@@ -84,8 +80,6 @@ mise upgrade
 mise upgrade tailwindcss
 ```
 
----
-
 ## Advanced configuration
 
 ### Per-project versioning
@@ -98,8 +92,6 @@ mise use tailwindcss@3
 
 This creates a `.mise.toml` file. Every time you enter this folder, `mise` will ensure the `tailwindcss` command points to v3, while the rest of your system stays on v4.
 
----
-
 ## Troubleshooting
 
 ### Permissions
@@ -109,8 +101,6 @@ On Linux and macOS, `mise` automatically sets the executable bit. If you manuall
 ### Version Conflicts
 
 If you previously installed Tailwind via `npm`, the npm version might take precedence in your PATH. Run `which tailwindcss` to ensure it points to the `~/.local/share/mise` path.
-
----
 
 ## Running into issues?
 
